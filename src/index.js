@@ -23,9 +23,7 @@ export default {
             for (const key in constants) {
                if (key !== key.toUpperCase()) {
                   error(`Constant '${key}' must be all upper case`)
-                  return
-               }
-               if (constants.hasOwnProperty(key)) {
+               } else if (constants.hasOwnProperty(key)) {
                   const frozen = deepFreeze(constants[key])
                   this.$options.computed[key] = {
                      get: () => frozen,
