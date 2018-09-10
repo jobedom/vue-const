@@ -2,6 +2,8 @@
 
 Adds a constants section in Vue components. 
 
+[![npm](https://img.shields.io/npm/v/vue-const.svg)](https://www.npmjs.com/package/vue-const) [![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/react.svg)](https://www.npmjs.com/package/vue-const) [![npm](https://img.shields.io/npm/dt/vue-const.svg)](https://www.npmjs.com/package/vue-const) 
+[![NpmLicense](https://img.shields.io/npm/l/vue-const.svg)](https://www.npmjs.com/package/vue-const)
 
 Install:
 
