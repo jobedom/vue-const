@@ -53,7 +53,7 @@
                var _loop = function _loop(key) {
                   if (constants.hasOwnProperty(key)) {
                      if (!REGEXP_CONSTANT.test(key)) {
-                        error('Constant \'' + key + '\' must be all upper case');
+                        error('Constant \'' + key + '\' must use upper case letters and underscores');
                         return 'continue';
                      }
                      var frozen = deepFreeze(constants[key]);
