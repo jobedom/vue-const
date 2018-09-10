@@ -13,6 +13,8 @@ function error(message) {
    console.error(message)
 }
 
+const REGEXP_CONSTANT = /^[A-Z_][A-Z0-9_]*$/
+
 export default {
    install(Vue) {
       Vue.mixin({
@@ -21,9 +23,11 @@ export default {
             if (!constants) return
             this.$options.computed = this.$options.computed || {}
             for (const key in constants) {
-               if (key !== key.toUpperCase()) {
-                  error(`Constant '${key}' must be all upper case`)
-               } else if (constants.hasOwnProperty(key)) {
+               if (constants.hasOwnProperty(key)) {
+                  if (!REGEXP_CONSTANT.test(key)) {
+                     error(`Constant '${key}' must be all upper case`)
+                     continue
+                  }
                   const frozen = deepFreeze(constants[key])
                   this.$options.computed[key] = {
                      get: () => frozen,
