@@ -15,7 +15,9 @@
   "scripts": {
     "build": "babel --optional runtime src -d dist"
   },
-  "dependencies": {},
+  "dependencies": {
+    "eslint": "^5.5.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-plugin-add-module-exports": "^0.2.1",

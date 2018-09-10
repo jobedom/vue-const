@@ -1,0 +1,44 @@
+{
+   "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "node": true
+   },
+   "parserOptions": {
+      "ecmaFeatures": {
+         "jsx": true
+      },
+      "sourceType": "module"
+   },
+   "extends": ["eslint:recommended"],
+   "globals": {},
+   "rules": {
+      "react/jsx-uses-vars": "none",
+      "indent": ["error", 3],
+      "linebreak-style": ["error", "unix"],
+      "quotes": ["error", "single"],
+      "semi": ["error", "always"],
+      "comma-dangle": ["error", "always-multiline"],
+      "no-cond-assign": ["error", "always"],
+      "no-console": ["error", { "allow": ["warn", "error"] }],
+      "no-debugger": "warn",
+      "no-const-assign": "warn",
+      "no-this-before-super": "warn",
+      "no-undef": "warn",
+      "no-unreachable": "warn",
+      "no-unused-vars": [
+         "error",
+         {
+            "vars": "all",
+            "args": "all",
+            "ignoreRestSiblings": false,
+            "varsIgnorePattern": "^h$",
+            "argsIgnorePattern": "^_"
+         }
+      ],
+      "constructor-super": "warn",
+      "valid-typeof": "warn",
+      "max-len": ["error", { "code": 120 }]
+   }
+}
