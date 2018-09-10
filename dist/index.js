@@ -51,11 +51,7 @@
                var _loop = function _loop(key) {
                   if (key !== key.toUpperCase()) {
                      error('Constant \'' + key + '\' must be all upper case');
-                     return {
-                        v: void 0
-                     };
-                  }
-                  if (constants.hasOwnProperty(key)) {
+                  } else if (constants.hasOwnProperty(key)) {
                      var frozen = deepFreeze(constants[key]);
                      _this.$options.computed[key] = {
                         get: function get() {
@@ -69,9 +65,7 @@
                };
 
                for (var key in constants) {
-                  var _ret = _loop(key);
-
-                  if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+                  _loop(key);
                }
             }
          });
