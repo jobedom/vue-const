@@ -38,6 +38,8 @@
       console.error(message);
    }
 
+   var REGEXP_CONSTANT = /^[A-Z_][A-Z0-9_]*$/;
+
    exports.default = {
       install: function install(Vue) {
          Vue.mixin({
@@ -49,9 +51,11 @@
                this.$options.computed = this.$options.computed || {};
 
                var _loop = function _loop(key) {
-                  if (key !== key.toUpperCase()) {
-                     error('Constant \'' + key + '\' must be all upper case');
-                  } else if (constants.hasOwnProperty(key)) {
+                  if (constants.hasOwnProperty(key)) {
+                     if (!REGEXP_CONSTANT.test(key)) {
+                        error('Constant \'' + key + '\' must be all upper case');
+                        return 'continue';
+                     }
                      var frozen = deepFreeze(constants[key]);
                      _this.$options.computed[key] = {
                         get: function get() {
@@ -65,7 +69,9 @@
                };
 
                for (var key in constants) {
-                  _loop(key);
+                  var _ret = _loop(key);
+
+                  if (_ret === 'continue') continue;
                }
             }
          });
