@@ -13,7 +13,7 @@ Install:
 
 or
 
-   yarn add vue-const
+    yarn add vue-const
 
 Enable it in your project:
 
